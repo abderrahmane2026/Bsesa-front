@@ -1,0 +1,35 @@
+.hero-section {
+    
+    margin-top: 20px;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    /* border-radius: 30px; */
+    margin: auto;
+    /* box-shadow: 0px 0px 10px; */
+  }
+  
+  .slide {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* لتوجيه النص إلى الجهة اليمنى */
+    justify-content: center;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: left; /* يجعل النص متمركزًا في الجهة اليمنى */
+    padding-left: 40px; /* لضبط المسافة عن الجهة اليمنى */
+  }
+  
+  .swiper-pagination-bullet {
+    background: white;
+    opacity: 0.8;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: white;
+  }
+  

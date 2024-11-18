@@ -1,0 +1,66 @@
+.Login-page body{
+    font-family: 'Poppins', sans-serif;
+    background: #ffffff;
+}
+/*------------ Login container ------------*/
+.Login-page .box-area{
+    width: 930px;
+   
+}
+/*------------ Right box ------------*/
+.Login-page .right-box{
+    padding: 40px 30px 40px 40px;
+}
+/*------------ Custom Placeholder ------------*/
+::placeholder{
+    font-size: 16px;
+}
+.Login-page .rounded-4{
+    border-radius: 20px;
+}
+.Login-page .rounded-5{
+    border-radius: 30px;
+}
+.Login-page .header-text h1{
+    font-weight: 700;
+    font-size: 40px;
+}
+.Login-page .featured-image p {
+    color: black;
+}
+
+/* .err-masseg span{
+    background-color: rgba(255, 0, 0, 0.279);
+    padding: 10px 20px 10px 20px;
+    margin: 10px;
+   
+    border-radius: 20px;
+} */
+.Login-page .errur{
+    background-color: var(--primary-color);
+    padding: 10px 20px 10px 20px;
+    border-radius: 20px;
+}
+
+.Login-page .input-group  {
+   
+}
+/*------------ For small screens------------*/
+@media only screen and (max-width: 768px){
+     .box-area{
+        margin: 0 10px;
+     }
+     .left-box{
+        height: 100px;
+        overflow: hidden;
+
+     }
+     .left-box img{
+       
+       display: none;
+        
+     }
+     .right-box{
+        padding: 20px;
+     }
+}

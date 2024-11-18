@@ -1,0 +1,17 @@
+.Pricing-section button{
+    background-color: #5211C6;
+    color: rgb(255, 255, 255) !important;
+    border: 1px solid #5211C6;
+    
+}
+
+.Pricing-section button:hover{
+    background-color: rgb(255, 255, 255);
+    color: #5211C6 !important;
+    
+}
+
+.payment-link{
+    text-decoration: none;
+    color: white;
+}

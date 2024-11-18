@@ -1,0 +1,71 @@
+/* NewQuizPage.css */
+
+.new-quiz-container {
+    margin-top: 40px;
+    padding-bottom: 40px;
+  }
+  
+  .new-quiz-paper {
+    padding: 40px;
+    background-color: #f9f9f9;
+  }
+  
+  .new-quiz-title {
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    color: #3f51b5;
+  }
+  
+  .new-quiz-box {
+    margin-bottom: 20px;
+  }
+  
+  .new-quiz-input {
+    margin-bottom: 10px;
+  }
+  
+  .new-quiz-question-box {
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+  }
+  
+  .new-quiz-option-box {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .new-quiz-option-input {
+    flex-grow: 1;
+    margin-right: 10px;
+  }
+  
+  .new-quiz-radio {
+    margin-left: 10px;
+  }
+  
+  .new-quiz-add-option-button {
+    margin-top: 10px;
+    background-color: #e3f2fd;
+  }
+  
+  .new-quiz-add-question-button {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .new-quiz-submit-button {
+    background-color: #2196f3;
+    color: white;
+    margin-left: 10px;
+  }
+  
+  .new-quiz-submit-button:hover,
+  .new-quiz-add-question-button:hover,
+  .new-quiz-add-option-button:hover {
+    opacity: 0.8;
+  }
+  

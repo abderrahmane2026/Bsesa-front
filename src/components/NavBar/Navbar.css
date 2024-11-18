@@ -1,0 +1,35 @@
+.Navbar .Log-button{
+    border: 1px solid #5211C6 ;
+    padding: 4px 30px 4px 30px !important;
+    border-radius: 25px;
+    color: #000000e6;
+    font-weight: 500;
+}
+.Navbar .sig-button{
+   background-color: #5211C6;
+   text-decoration: none;
+   font-weight: 600;
+}
+
+.Navbar .Log-button :hover{
+    background-color: #401094 !important;
+}
+.Navbar ul{
+    margin-top: 15px;
+}
+.Navbar ul li a{
+  color: #000000e6;
+  font-weight: 500;
+  margin-right: 20px !important;
+
+}
+.Navbar ul li a:hover{
+    color: #401094;
+}
+.Navbar .logo{
+    margin-right: 5% !important;
+}
+
+.user-icon{
+    font-size: 30px;
+}

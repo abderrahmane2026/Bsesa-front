@@ -1,0 +1,129 @@
+/* account.css */
+.account-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.account-page h2 {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  color: #4A90E2;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.account-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.user-image {
+  flex: 0 0 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-image img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #4A90E2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.user-image img:hover {
+  transform: scale(1.05);
+}
+
+.user-image label {
+  cursor: pointer;
+  background-color: #4A90E2;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.user-image label:hover {
+  background-color: #357ABD;
+}
+
+.user-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.user-info label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+.user-info input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-top: 4px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.user-info input[type="text"]:focus {
+  border-color: #4A90E2;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
+  outline: none;
+}
+
+.account-page button {
+  background-color: #4A90E2;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 15px;
+  width: fit-content;
+}
+
+.account-page button:hover {
+  background-color: #357ABD;
+  transform: translateY(-2px);
+}
+
+.account-page button:active {
+  transform: scale(0.98);
+}
+
+.account-page .response-message {
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: green;
+}
+
+.account-page .response-message.error {
+  color: #D9534F;
+}
+
+.account-page .response-message.success {
+  color: #5CB85C;
+}

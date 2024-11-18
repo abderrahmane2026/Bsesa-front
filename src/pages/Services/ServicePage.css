@@ -1,0 +1,23 @@
+.Service-page {
+ 
+}
+.Service-page .service-items{
+    margin-left: 300px;
+}
+.Service-page .sidebar{
+    width: 200px !important;
+    margin-top: 50px !important;
+}
+.Service-page .service-button{
+   margin-top: 50px;
+}
+
+.Service-page .service-button Button{
+    margin-left: 20px;
+}
+.Service-page .service-container li{
+    width: 200px;
+}
+.Service-page .service-container {
+   
+}

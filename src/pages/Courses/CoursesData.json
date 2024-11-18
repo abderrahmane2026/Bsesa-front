@@ -1,0 +1,115 @@
+[
+  {
+    "_id": "course1",
+    "title": "Introduction to Machine Learning",
+    "categorys": ["Technology", "AI"],
+    "coach": { "name": "John Doe" },
+    "description": "Learn the basics of Machine Learning, including supervised and unsupervised learning techniques.",
+    "price": 199,
+    "videos": [
+      { "title": "Introduction to Machine Learning", "description": "Overview of Machine Learning concepts", "url": "https://youtu.be/TeMH1Flg1pk?si=3FEawgws37AL_SPt", "thumbnail": "https://via.placeholder.com/200", "order": 1 },
+      { "title": "Supervised Learning Techniques", "description": "In-depth discussion on supervised learning", "url": "https://youtu.be/zl1CgOgb1DA?si=0Im8uDDjMRjr3QRo", "thumbnail": "https://via.placeholder.com/200", "order": 2 }
+    ],
+    "thumbnail": "data:image/jpeg;base64,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"
+  },
+  {
+    "_id": "course2",
+    "title": "Advanced React Development",
+    "categorys": ["Web Development", "JavaScript"],
+    "coach": { "name": "Jane Smith" },
+    "description": "Take your React skills to the next level by learning advanced concepts and best practices.",
+    "price": 299,
+    "videos": [
+      { "title": "Advanced Hooks", "description": "Learn about advanced hooks in React", "url": "https://www.google.com/search?q=course+video&sca_esv=b28375632d0b0304&sxsrf=ADLYWIIgWzjLdE99D5780Qm0VKEyNTx2Gg%3A1731868162896&ei=AjY6Z9e2NtyckdUPop3ZyQg&oq=%D8%A4%D8%AE%D8%B9%D9%82%D8%B3%D8%AB+%D8%B1%D9%87&gs_lp=Egxnd3Mtd2l6LXNlcnAiEdik2K7YudmC2LPYqyDYsdmHKgIIATIHEAAYgAQYDTIGEAAYDRgeMggQABgKGA0YHjIGEAAYDRgeMggQABgKGA0YHjIGEAAYDRgeMgYQABgNGB4yBhAAGA0YHjIGEAAYDRgeMgYQABgNGB5IiCZQAFinEHAAeAGQAQCYAfICoAG_FKoBBTItNC41uAEDyAEA-AEBmAIJoALsFcICCBAAGIAEGLEDwgILEAAYgAQYsQMYgwHCAgkQABiABBgBGArCAgQQABgDwgIFEC4YgATCAgUQABiABMICDxAuGIAEGAEY0QMYxwEYCsICDBAuGIAEGAEY1AIYCsICCRAuGIAEGAEYCsICFBAuGIAEGJcFGNwEGN4EGOAE2AEBwgIJEAAYgAQYChgqwgIREC4YgAQYARjRAxjHARgKGCrCAggQABiABBiiBMICIBAuGIAEGAEY0QMYxwEYChgqGJcFGNwEGN4EGOAE2AEBwgIEEAAYHsICBxAAGIAEGArCAg0QLhiABBjRAxjHARgKmAMAugYGCAEQARgUkgcFMi00LjWgB4VG&sclient=gws-wiz-serp#", "thumbnail": "https://via.placeholder.com/200", "order": 1 },
+      { "title": "State Management", "description": "Master state management using Context and Redux", "url": "video4", "thumbnail": "https://via.placeholder.com/200", "order": 2 },
+      { "title": "React Performance", "description": "Optimize your React applications for better performance", "url": "video5", "thumbnail": "https://via.placeholder.com/200", "order": 3 }
+    ],
+    "thumbnail": "https://via.placeholder.com/200",
+    "published": true,
+    "completed": false,
+    "quiz": "quiz2"
+  },
+  {
+    "_id": "course3",
+    "title": "Digital Marketing Essentials",
+    "categorys": ["Marketing", "Business"],
+    "coach": { "name": "Alice Johnson" },
+    "description": "Learn how to create effective digital marketing campaigns and improve your business growth.",
+    "price": 149,
+    "videos": [
+      { "title": "Digital Marketing Overview", "description": "Introduction to Digital Marketing", "url": "video6", "thumbnail": "https://via.placeholder.com/200", "order": 1 }
+    ],
+    "thumbnail": "https://via.placeholder.com/200",
+    "published": true,
+    "completed": true,
+    "quiz": "quiz3"
+  },
+  {
+    "_id": "course4",
+    "title": "Python for Data Science",
+    "categorys": ["Programming", "Data Science"],
+    "coach": { "name": "Michael Brown" },
+    "description": "Master Python programming and learn how to use it for data analysis and visualization.",
+    "price": 249,
+    "videos": [
+      { "title": "Introduction to Python", "description": "Learn the basics of Python", "url": "video7", "thumbnail": "https://via.placeholder.com/200", "order": 1 },
+      { "title": "Data Analysis with Pandas", "description": "Using Pandas for Data Analysis", "url": "video8", "thumbnail": "https://via.placeholder.com/200", "order": 2 },
+      { "title": "Data Visualization", "description": "Create stunning data visualizations using Python", "url": "video9", "thumbnail": "https://via.placeholder.com/200", "order": 3 }
+    ],
+    "thumbnail": "https://via.placeholder.com/200",
+    "published": true,
+    "completed": false,
+    "quiz": "quiz4"
+  },
+  {
+    "_id": "course5",
+    "title": "Full Stack Web Development",
+    "categorys": ["Web Development", "Full Stack"],
+    "coach": { "name": "Emily Davis" },
+    "description": "Become a full stack web developer by learning both front-end and back-end technologies.",
+    "price": 399,
+    "videos": [
+      { "title": "Front-End Basics", "description": "Learn HTML, CSS, and JavaScript", "url": "video10", "thumbnail": "https://via.placeholder.com/200", "order": 1 },
+      { "title": "Server-Side Development", "description": "Introduction to server-side technologies", "url": "video11", "thumbnail": "https://via.placeholder.com/200", "order": 2 },
+      { "title": "Database Integration", "description": "Integrate databases in your application", "url": "video12", "thumbnail": "https://via.placeholder.com/200", "order": 3 },
+      { "title": "Full Stack Project", "description": "Build a complete full stack project", "url": "video13", "thumbnail": "https://via.placeholder.com/200", "order": 4 }
+    ],
+    "thumbnail": "https://via.placeholder.com/200",
+    "published": true,
+    "completed": false,
+    "quiz": "quiz5"
+  },
+  {
+    "_id": "course6",
+    "title": "Introduction to Cybersecurity",
+    "categorys": ["Security", "Technology"],
+    "coach": { "name": "Sarah Connor" },
+    "description": "Learn the fundamentals of cybersecurity and how to protect systems and data from attacks.",
+    "price": 199,
+    "videos": [
+      { "title": "Cybersecurity Overview", "description": "Understanding Cybersecurity", "url": "video14", "thumbnail": "https://via.placeholder.com/200", "order": 1 },
+      { "title": "Protecting Systems", "description": "How to secure systems against threats", "url": "video15", "thumbnail": "https://via.placeholder.com/200", "order": 2 }
+    ],
+    "thumbnail": "https://via.placeholder.com/200",
+    "published": true,
+    "completed": false,
+    "quiz": "quiz6"
+  },
+  {
+    "_id": "course7",
+    "title": "Graphic Design for Beginners",
+    "categorys": ["Design", "Creativity"],
+    "coach": { "name": "Laura Green" },
+    "description": "Get started with graphic design by learning the basics of tools like Photoshop and Illustrator.",
+    "price": 129,
+    "videos": [
+      { "title": "Introduction to Graphic Design", "description": "Overview of graphic design tools", "url": "video16", "thumbnail": "https://via.placeholder.com/200", "order": 1 },
+      { "title": "Photoshop Basics", "description": "Learn the basics of Adobe Photoshop", "url": "video17", "thumbnail": "https://via.placeholder.com/200", "order": 2 },
+      { "title": "Illustrator Basics", "description": "Learn the basics of Adobe Illustrator", "url": "video18", "thumbnail": "https://via.placeholder.com/200", "order": 3 }
+    ],
+    "thumbnail": "https://via.placeholder.com/200",
+    "published": true,
+    "completed": false,
+    "quiz": "quiz7"
+  }
+]

@@ -1,0 +1,56 @@
+/* CreateCategory.css */
+
+.create-category-container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .create-category-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .create-category-message {
+    color: #4caf50;
+    margin-bottom: 15px;
+  }
+  
+  .create-category-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .create-category-label {
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  
+  .create-category-input,
+  .create-category-textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .create-category-button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .create-category-button:hover {
+    background-color: #45a049;
+  }
+  

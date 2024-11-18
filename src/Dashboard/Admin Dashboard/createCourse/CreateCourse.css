@@ -1,0 +1,151 @@
+/* NewCourse.css */
+
+/* إعدادات الخط والخلفية */
+.course-page {
+    
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #5adbff, #3691ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  /* الحاوية الرئيسية */
+  .course-page{
+    padding: 30px 0px 30px 0px;
+  }
+  .course-page .new-course-container {
+    
+    background: linear-gradient(135deg, #9eeaff, #6babfb);
+    box-shadow: 0 5px 5px 10px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 700px;
+    margin: auto;
+    padding: 30px;
+    animation: fadeIn 0.6s ease-out;
+    overflow: hidden;
+  }
+  
+  /* تأثير الظهور */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* عنوان الصفحة */
+  .course-page .new-course-container h1 {
+    text-align: center;
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  
+  /* تصميم النموذج */
+  .course-page .new-course-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* عناوين الحقول */
+  .course-page .form-group label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  /* المدخلات */
+  .course-page .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    color: #333;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+  }
+  
+  .course-page .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #0072ff;
+    box-shadow: 0 4px 8px rgba(0, 114, 255, 0.2);
+    outline: none;
+  }
+  
+  .course-page textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  /* مجموعة الفيديو */
+  .course-page .video-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  /* زر إضافة الفيديو */
+  .course-page .add-video-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00a020;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .course-page .add-video-button:hover {
+    background-color: #23bf18;
+  }
+  
+  /* زر الإرسال */
+  .course-page button.submit-button {
+    background-color: #0072ff;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .course-page button.submit-button:hover {
+    background-color: #005bb5;
+  }
+  
+  /* الرسالة */
+  .course-page .message {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .course-page .message.success {
+    color: #28a745;
+  }
+  
+  .course-page .message.error {
+    color: #e74c3c;
+  }
+  

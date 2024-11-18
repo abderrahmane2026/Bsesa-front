@@ -1,0 +1,38 @@
+[
+    {
+      "commentId": "cmt1",
+      "author": "Alice Johnson",
+      "content": "This is a great blog post! I really enjoyed the insights shared here.",
+      "date": "2024-11-01",
+      "blogId": "blog1"
+    },
+    {
+      "commentId": "cmt2",
+      "author": "Bob Smith",
+      "content": "Very informative and well-written. Thanks for sharing!",
+      "date": "2024-11-02",
+      "blogId": "blog1"
+    },
+    {
+      "commentId": "cmt3",
+      "author": "Charlie Brown",
+      "content": "I think there could be more examples to support the claims made in this post.",
+      "date": "2024-11-03",
+      "blogId": "blog2"
+    },
+    {
+      "commentId": "cmt4",
+      "author": "Diana Prince",
+      "content": "Absolutely loved this! Looking forward to more posts like this.",
+      "date": "2024-11-04",
+      "blogId": "blog3"
+    },
+    {
+      "commentId": "cmt5",
+      "author": "Ethan Hunt",
+      "content": "Great content but I would love to see more details on the implementation.",
+      "date": "2024-11-05",
+      "blogId": "blog3"
+    }
+  ]
+  

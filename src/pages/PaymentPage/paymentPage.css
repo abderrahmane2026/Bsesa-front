@@ -1,0 +1,155 @@
+.payment-page {
+    display: flex;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    gap: 40px;
+    background-color: #f9f9fc;
+  }
+  
+  .payment-left, .payment-right {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .payment-left {
+    flex: 2;
+  }
+  
+  .payment-right {
+    flex: 1;
+  }
+  
+  .payment-left h2 {
+    color: #6b47dc;
+    font-weight: bold;
+  }
+  
+  .payment-left p {
+    color: #444;
+  }
+  
+  .billing-section label {
+    display: block;
+    margin: 20px 0 5px;
+    font-weight: bold;
+  }
+  
+  .billing-section input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .payment-details {
+    margin-top: 30px;
+  }
+  
+  .payment-methods {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .payment-method {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    transition: 0.3s ease;
+  }
+  
+  .payment-method.active {
+    background-color: #6b47dc;
+    color: #fff;
+    border-color: #6b47dc;
+  }
+  
+  .credit-card-info {
+    margin-top: 20px;
+  }
+  
+  .credit-card-info input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .card-expiry-cvc {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .card-expiry-cvc input {
+    width: calc(50% - 7.5px);
+  }
+  
+  .payment-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .cancel-button, .subscribe-button {
+    padding: 15px;
+    flex: 1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cancel-button {
+    background-color: #f0f0f0;
+  }
+  
+  .subscribe-button {
+    background-color: #6b47dc;
+    color: white;
+  }
+  
+  .payment-note {
+    font-size: 0.9em;
+    color: #888;
+    margin-top: 15px;
+  }
+  
+  .plan-options label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: #f8f8ff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .save-tag {
+    background: #e0d1ff;
+    padding: 2px 5px;
+    font-size: 0.9em;
+    margin-left: 10px;
+    border-radius: 4px;
+  }
+  
+  .total-section {
+    background: #f8f8ff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .security-note {
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 10px;
+  }
+  
