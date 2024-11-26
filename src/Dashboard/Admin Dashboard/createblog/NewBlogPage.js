@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 // Refresh function to check login status
 export const refresh = async () => {
   try {
-    const res = await axios.get("http://localhost:5000/refresh", {
+    const res = await axios.get("https://bsesa-backend.onrender.com/refresh", {
       withCredentials: true,
     });
     return true;
@@ -33,7 +33,7 @@ const BlogForm = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/categories");
+        const response = await axios.get("https://bsesa-backend.onrender.com/categories");
         console.log("Fetched categories:", response.data); // Display data to verify
         setCategories(response.data.categorys); // Access array inside the object
       } catch (error) {
@@ -84,7 +84,7 @@ const BlogForm = () => {
 
       console.log("Sending formData:", formData); // Verify data here
 
-      const response = await axios.post("http://localhost:5000/blog/create", formDataToSend, {
+      const response = await axios.post("https://bsesa-backend.onrender.com/blog/create", formDataToSend, {
         withCredentials: true,
         headers: {
           "Content-Type": "multipart/form-data",

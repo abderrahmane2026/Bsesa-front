@@ -61,7 +61,7 @@ const NewQuizPage = () => {
       console.log("Sending formData:", formData); // Verify the data here
 
       // Send the request to create a quiz with credentials (cookies)
-      const response = await axios.post("http://localhost:5000/quiz", formData, {
+      const response = await axios.post("https://bsesa-backend.onrender.com/quiz", formData, {
         withCredentials: true,
       });
 

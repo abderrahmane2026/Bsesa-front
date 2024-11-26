@@ -19,7 +19,7 @@ const ActivationPage = () => {
   const handleActivation = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/activation", { activationCode, token });
+      const response = await axios.post("https://bsesa-backend.onrender.com/activation", { activationCode, token });
       setMessage("Account successfully activated! Redirecting to login...");
       
       setError("");

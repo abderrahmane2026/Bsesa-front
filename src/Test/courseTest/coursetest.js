@@ -12,7 +12,7 @@ const AddVideosToCourse = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/courses");
+        const response = await axios.get("https://bsesa-backend.onrender.com/courses");
         setCourses(response.data);
       } catch (error) {
         console.error("Error fetching courses:", error);
@@ -26,7 +26,7 @@ const AddVideosToCourse = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/videos");
+        const response = await axios.get("https://bsesa-backend.onrender.com/videos");
         setVideos(response.data);
       } catch (error) {
         console.error("Error fetching videos:", error);
@@ -82,7 +82,7 @@ const AddVideosToCourse = () => {
       const videosToAdd = selectedVideos.map((v) => v.videoId);
   
       const response = await axios.put(
-        `http://localhost:5000/course/add_video/${selectedCourseId}`,
+        `https://bsesa-backend.onrender.com/course/add_video/${selectedCourseId}`,
         { newVideos: videosToAdd } // إرسال المعرّفات فقط
       );
   

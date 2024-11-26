@@ -27,7 +27,7 @@ const AddVideoPage = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/video/create", formData, {
+      const response = await axios.post("https://bsesa-backend.onrender.com/video/create", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

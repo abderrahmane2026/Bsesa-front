@@ -12,7 +12,7 @@ const ConferencesPage = () => {
   useEffect(() => {
     const fetchConferences = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/conferences");
+        const response = await axios.get("https://bsesa-backend.onrender.com/conferences");
         setConferences(response.data.conferences);
         setLoading(false);
       } catch (err) {

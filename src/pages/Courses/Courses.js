@@ -25,7 +25,7 @@ const CoursesPage = () => {
       setLoading(true);
       try {
         // Fetch all categories
-        const categoriesResponse = await axios.get("http://localhost:5000/categories");
+        const categoriesResponse = await axios.get("https://bsesa-backend.onrender.com/categories");
         const categoryOptions = categoriesResponse.data.categorys.map((category) => ({
           value: category._id,
           label: category.name,
@@ -33,7 +33,7 @@ const CoursesPage = () => {
         setCategories(categoryOptions);
 
         // Fetch all courses
-        const coursesResponse = await axios.get("http://localhost:5000/courses");
+        const coursesResponse = await axios.get("https://bsesa-backend.onrender.com/courses");
         setCourses(coursesResponse.data); // عرض جميع الكورسات
         setAllCourses(coursesResponse.data); // الاحتفاظ بالكورسات الكاملة
         setMessage("");

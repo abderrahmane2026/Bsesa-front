@@ -15,7 +15,7 @@ const BlogList = () => {
     const fetchBlogs = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("http://localhost:5000/blogs", {
+        const response = await axios.get("https://bsesa-backend.onrender.com/blogs", {
           params: { page, limit: 20 },
         });
         setBlogs(response.data);
