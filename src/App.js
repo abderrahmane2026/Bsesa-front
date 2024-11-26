@@ -33,12 +33,13 @@ import ConferencesPage from './pages/Conferences/Conferences';
 import PaymentPage from './pages/PaymentPage/paymentPage';
 import ScrollToTop from './Context/ScrollToTop';
 import NewQuizPage from './Dashboard/Admin Dashboard/NewQuiz/NewQuiz';
+import AddVideo from './Test/courseTest/coursetest';
 
 function App() {
 
   
   return (
-    <div className="App">
+    <div className="App min-h-screen bg-[#111111] text-white">
        <NavBar/>
        <ScrollToTop />
       <Routes>
@@ -48,6 +49,9 @@ function App() {
       <Route path='/About' element={<AboutUsPage/>}/>
       <Route path='/Contact' element={<ContactUs/>}/>
       <Route path='/service' element={<ServicePage/>}/>
+
+      <Route path='/Login' element={<LoginPage/>}/>
+      <Route path='/Signup' element={<SignupPage/>}/>
       
       <Route path='/ConferencesPage' element={<ConferencesPage/>}/>
       <Route path='/ConferenceDetailsPage/:id' element={<ConferenceDetailsPage/>}/>
@@ -57,8 +61,7 @@ function App() {
       <Route path='/courses' element={<Courses/>}/>
       <Route path="/courses/:courseId" element={<CourseDetails />} />
 
-      <Route path='/Login' element={<LoginPage/>}/>
-      <Route path='/Signup' element={<SignupPage/>}/>
+      
       {/* <Route path='/ActivationPage' element={<ActivationPage/>}/> */}
       <Route path="/activate_account/:token" element={<ActivationPage />} />
       {/* <Route path="/verify/:token" element={<ActivateAccount />} /> */}
@@ -101,7 +104,7 @@ function App() {
 
      {/* test */}
     
-
+     <Route path="/AddVideotest" element={<AddVideo />}/>
 
   
 

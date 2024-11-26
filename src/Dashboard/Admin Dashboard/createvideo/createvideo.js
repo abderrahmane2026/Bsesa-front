@@ -1,100 +1,117 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./createvideo.css"; // Import the CSS file
+ // Import your CSS if available
 
-const CreateVideo = () => {
+const AddVideoPage = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [videoFile, setVideoFile] = useState(null);
   const [thumbnailFile, setThumbnailFile] = useState(null);
-  const [pdfFile, setPdfFile] = useState(null);
   const [links, setLinks] = useState("");
-  const [message, setMessage] = useState("");
-
-  const handleFileChange = (e) => {
-    const { name, files } = e.target;
-    if (name === "video") setVideoFile(files[0]);
-    if (name === "thumbnail") setThumbnailFile(files[0]);
-    if (name === "pdf") setPdfFile(files[0]);
-  };
+  const [responseMessage, setResponseMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!videoFile || !thumbnailFile) {
+      setResponseMessage("Both video and thumbnail files are required.");
+      return;
+    }
+
     const formData = new FormData();
     formData.append("title", title);
     formData.append("description", description);
     formData.append("video", videoFile);
     formData.append("thumbnail", thumbnailFile);
-    if (pdfFile) formData.append("pdf", pdfFile);
-    formData.append("links", JSON.stringify(links.split(",")));
+    if (links) {
+      formData.append("links", JSON.stringify(links.split(",")));
+    }
 
     try {
       const response = await axios.post("http://localhost:5000/video/create", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        withCredentials: true,
       });
-      setMessage("Video uploaded successfully!");
+      setResponseMessage(response.data.message);
       setTitle("");
       setDescription("");
       setVideoFile(null);
       setThumbnailFile(null);
-      setPdfFile(null);
       setLinks("");
     } catch (error) {
-      setMessage(`Error: ${error.response.data.err}`);
+      setResponseMessage(error.response?.data?.err || "Failed to upload video.");
+      console.error("Error uploading video:", error);
     }
   };
 
   return (
-    <div className="createvideo">
-    <div className="container">
-      <h1 className="heading">Create Video</h1>
-      <form onSubmit={handleSubmit} className="form">
-        <div className="formGroup">
-          <label className="label">Title</label>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className="input"
-            required
-          />
-        </div>
-        <div className="formGroup">
-          <label className="label">Description</label>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className="textarea"
-            required
-          />
-        </div>
-        <div className="formGroup">
-          <label className="label">Video File</label>
-          <input type="file" name="video" onChange={handleFileChange} className="fileInput" required />
-        </div>
-        <div className="formGroup">
-          <label className="label">Thumbnail File</label>
-          <input type="file" name="thumbnail" onChange={handleFileChange} className="fileInput" required />
-        </div>
-        <div className="formGroup">
-          <label className="label">PDF File (Optional)</label>
-          <input type="file" name="pdf" onChange={handleFileChange} className="fileInput" />
-        </div>
-        <div className="formGroup">
-          <label className="label">Links (comma-separated)</label>
-          <input
-            type="text"
-            value={links}
-            onChange={(e) => setLinks(e.target.value)}
-            className="input"
-          />
-        </div>
-        <button type="submit" className="button">Upload Video</button>
-      </form>
-      {message && <p className="message">{message}</p>}
-    </div>
+    <div className="bg-[#1A1A1A] text-white min-h-screen flex items-center justify-center py-24 px-6 lg:px-16">
+      <div className="w-full max-w-2xl p-8 space-y-6 bg-gray-800 rounded-lg shadow-md">
+        <h2 className="text-3xl font-bold text-yellow-400 text-center">Add New Video</h2>
+        {responseMessage && <p className="text-yellow-500 text-center font-medium">{responseMessage}</p>}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="flex flex-col">
+            <label htmlFor="title" className="mb-2 font-semibold">Title</label>
+            <input
+              type="text"
+              id="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+              className="px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="description" className="mb-2 font-semibold">Description</label>
+            <textarea
+              id="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              required
+              className="px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="video" className="mb-2 font-semibold">Video File</label>
+            <input
+              type="file"
+              id="video"
+              onChange={(e) => setVideoFile(e.target.files[0])}
+              required
+              className="px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="thumbnail" className="mb-2 font-semibold">Thumbnail Image</label>
+            <input
+              type="file"
+              id="thumbnail"
+              onChange={(e) => setThumbnailFile(e.target.files[0])}
+              required
+              className="px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="links" className="mb-2 font-semibold">Links (Comma separated)</label>
+            <input
+              type="text"
+              id="links"
+              value={links}
+              onChange={(e) => setLinks(e.target.value)}
+              className="px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full py-3 mt-6 font-semibold text-gray-900 bg-yellow-400 rounded-lg hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50"
+          >
+            Upload Video
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
 
-export default CreateVideo;
+export default AddVideoPage;

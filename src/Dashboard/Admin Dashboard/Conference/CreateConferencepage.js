@@ -1,163 +1,203 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import "./CreateConferencepage.css"; // Importing CSS file for styles
-import { refresh } from '../createblog/NewBlogPage';
 
-const NewConferencePage = () => {
-  const navigate = useNavigate();
-  const token = localStorage.getItem('token');
-  const [conferenceData, setConferenceData] = useState({
+const NewConference = () => {
+  const [formData, setFormData] = useState({
     name: "",
-    description: "",
     location: "",
-    date: { start: "", end: "" },
-    categories: [],
-    speakers: [{ firstName: "", lastName: "", image: "" }],
-    image: "", // رابط الصورة
+    description: "",
+    startDate: "",
+    endDate: "",
+    categories: "",
+    speakers: [],
   });
-  const [error, setError] = useState("");
+  const [file, setFile] = useState(null);
+  const [message, setMessage] = useState("");
 
-  const handleInputChange = (e) => {
+  // تحديث الحقول الرئيسية
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setConferenceData({ ...conferenceData, [name]: value });
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleDateChange = (e) => {
-    const { name, value } = e.target;
-    setConferenceData({
-      ...conferenceData,
-      date: { ...conferenceData.date, [name]: value },
-    });
+  // تحديث صورة المؤتمر
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
   };
 
-  const handleAddCategory = () => {
-    setConferenceData({
-      ...conferenceData,
-      categories: [...conferenceData.categories, ""],
-    });
-  };
-
-  const handleCategoryChange = (index, value) => {
-    const newCategories = [...conferenceData.categories];
-    newCategories[index] = value;
-    setConferenceData({ ...conferenceData, categories: newCategories });
-  };
-
-  const handleAddSpeaker = () => {
-    setConferenceData({
-      ...conferenceData,
-      speakers: [...conferenceData.speakers, { firstName: "", lastName: "", image: "" }],
-    });
-  };
-
+  // تحديث بيانات المتحدثين
   const handleSpeakerChange = (index, field, value) => {
-    const newSpeakers = [...conferenceData.speakers];
-    newSpeakers[index][field] = value;
-    setConferenceData({ ...conferenceData, speakers: newSpeakers });
+    const updatedSpeakers = [...formData.speakers];
+    if (!updatedSpeakers[index]) {
+      updatedSpeakers[index] = { firstName: "", lastName: "", imageUrl: "" };
+    }
+    updatedSpeakers[index][field] = value;
+    setFormData({ ...formData, speakers: updatedSpeakers });
   };
 
+  // إرسال البيانات
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const checkToken = await refresh();
-      if (!checkToken) throw new Error("You Must Login");
 
-      await axios.post("http://localhost:5000/conference/create", conferenceData, {
+    const formDataObj = new FormData();
+    formDataObj.append("name", formData.name);
+    formDataObj.append("location", formData.location);
+    formDataObj.append("description", formData.description);
+    formDataObj.append("date[start]", formData.startDate);
+    formDataObj.append("date[end]", formData.endDate);
+    formDataObj.append("categories", formData.categories.split(","));
+    formDataObj.append("speakers", JSON.stringify(formData.speakers)); // تحويل المتحدثين إلى JSON
+    formDataObj.append("file", file);
+
+    try {
+      const response = await axios.post("http://localhost:5000/conference/create", formDataObj, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
         },
-        withCredentials: true,
       });
-      navigate("/ConferencesPage");
-    } catch (err) {
-      setError(err.response?.data?.message || "Failed to create conference");
+      setMessage(response.data.message);
+    } catch (error) {
+      setMessage(error.response?.data?.err || "Something went wrong!");
     }
   };
 
   return (
-    <div className="new-conference-page">
-      <h2>Create New Conference</h2>
-      {error && <p className="error">{error}</p>}
-      <form onSubmit={handleSubmit} className="conference-form">
-        <label>
-          Conference Name:
-          <input type="text" name="name" value={conferenceData.name} onChange={handleInputChange} required />
-        </label>
-        <label>
-          Description:
-          <textarea name="description" value={conferenceData.description} onChange={handleInputChange} required />
-        </label>
-        <label>
-          Location:
-          <input type="text" name="location" value={conferenceData.location} onChange={handleInputChange} required />
-        </label>
-        <label>
-          Start Date:
-          <input type="date" name="start" value={conferenceData.date.start} onChange={handleDateChange} required />
-        </label>
-        <label>
-          End Date:
-          <input type="date" name="end" value={conferenceData.date.end} onChange={handleDateChange} />
-        </label>
-        <label>
-          Image URL:
-          <input
-            type="text"
-            name="image"
-            value={conferenceData.image}
-            onChange={handleInputChange}
-            placeholder="https://example.com/image.jpg"
-          />
-        </label>
-        <label>
-          Categories:
-          {conferenceData.categories.map((category, index) => (
+    <div className="bg-gray-900 text-white min-h-screen flex items-center justify-center">
+      <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-6 text-center">Create New Conference</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium">Name</label>
             <input
-              key={index}
               type="text"
-              value={category}
-              onChange={(e) => handleCategoryChange(index, e.target.value)}
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="w-full mt-1 p-2 rounded bg-gray-700 text-white focus:ring focus:ring-blue-500"
             />
-          ))}
-          <button type="button" onClick={handleAddCategory} className="add-button">
-            Add Category
-          </button>
-        </label>
-        <label>
-          Speakers:
-          {conferenceData.speakers.map((speaker, index) => (
-            <div key={index} className="speaker-inputs">
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Location</label>
+            <input
+              type="text"
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+              required
+              className="w-full mt-1 p-2 rounded bg-gray-700 text-white focus:ring focus:ring-blue-500"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Description</label>
+            <textarea
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+              required
+              className="w-full mt-1 p-2 rounded bg-gray-700 text-white focus:ring focus:ring-blue-500"
+            />
+          </div>
+          <div className="flex gap-4">
+            <div>
+              <label className="block text-sm font-medium">Start Date</label>
               <input
-                type="text"
-                placeholder="First Name"
-                value={speaker.firstName}
-                onChange={(e) => handleSpeakerChange(index, "firstName", e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="Last Name"
-                value={speaker.lastName}
-                onChange={(e) => handleSpeakerChange(index, "lastName", e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="Image URL"
-                value={speaker.image}
-                onChange={(e) => handleSpeakerChange(index, "image", e.target.value)}
+                type="date"
+                name="startDate"
+                value={formData.startDate}
+                onChange={handleChange}
+                required
+                className="w-full mt-1 p-2 rounded bg-gray-700 text-white focus:ring focus:ring-blue-500"
               />
             </div>
-          ))}
-          <button type="button" onClick={handleAddSpeaker} className="add-button">
-            Add Speaker
+            <div>
+              <label className="block text-sm font-medium">End Date</label>
+              <input
+                type="date"
+                name="endDate"
+                value={formData.endDate}
+                onChange={handleChange}
+                className="w-full mt-1 p-2 rounded bg-gray-700 text-white focus:ring focus:ring-blue-500"
+              />
+            </div>
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Categories</label>
+            <input
+              type="text"
+              name="categories"
+              value={formData.categories}
+              onChange={handleChange}
+              placeholder="Comma-separated"
+              className="w-full mt-1 p-2 rounded bg-gray-700 text-white focus:ring focus:ring-blue-500"
+            />
+          </div>
+          <div>
+            <h3 className="text-lg font-bold">Speakers</h3>
+            {formData.speakers.map((speaker, index) => (
+              <div key={index} className="mt-4 bg-gray-700 p-4 rounded-lg">
+                <div>
+                  <label className="block text-sm font-medium">First Name</label>
+                  <input
+                    type="text"
+                    value={speaker.firstName}
+                    onChange={(e) => handleSpeakerChange(index, "firstName", e.target.value)}
+                    className="w-full mt-1 p-2 rounded bg-gray-600 text-white focus:ring focus:ring-blue-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium">Last Name</label>
+                  <input
+                    type="text"
+                    value={speaker.lastName}
+                    onChange={(e) => handleSpeakerChange(index, "lastName", e.target.value)}
+                    className="w-full mt-1 p-2 rounded bg-gray-600 text-white focus:ring focus:ring-blue-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium">Image URL</label>
+                  <input
+                    type="text"
+                    value={speaker.imageUrl}
+                    onChange={(e) => handleSpeakerChange(index, "imageUrl", e.target.value)}
+                    className="w-full mt-1 p-2 rounded bg-gray-600 text-white focus:ring focus:ring-blue-500"
+                  />
+                </div>
+              </div>
+            ))}
+            <button
+              type="button"
+              onClick={() =>
+                setFormData({
+                  ...formData,
+                  speakers: [...formData.speakers, { firstName: "", lastName: "", imageUrl: "" }],
+                })
+              }
+              className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg"
+            >
+              Add Speaker
+            </button>
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Conference Image</label>
+            <input
+              type="file"
+              onChange={handleFileChange}
+              required
+              className="w-full mt-1 p-2 rounded bg-gray-700 text-white focus:ring focus:ring-blue-500"
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-green-600 hover:bg-green-700 text-white p-2 rounded-lg"
+          >
+            Create Conference
           </button>
-        </label>
-        <button type="submit" className="submit-button">
-          Create Conference
-        </button>
-      </form>
+        </form>
+        {message && <p className="text-center mt-4">{message}</p>}
+      </div>
     </div>
   );
 };
 
-export default NewConferencePage;
+export default NewConference;

@@ -19,7 +19,7 @@
   margin-bottom: 20px;
 }
 
-.blog-header h1 {
+/* .blog-header h1 {
   font-size: 2rem;
   color: #333;
   margin-bottom: 10px;
@@ -30,15 +30,15 @@
   color: #555;
   line-height: 1.6;
   margin-bottom: 20px;
-}
+} */
 
-.blog-views {
+/* .blog-views {
   font-size: 1.5rem;
   color: #777;
   display: flex;
   align-items: center;
   gap: 5px;
-}
+} */
 
 .blog-interactions {
   display: flex;
@@ -69,7 +69,7 @@
 
 .comments-section h3 {
   font-size: 1.5rem;
-  color: #333;
+  
   margin-bottom: 20px;
   display: flex;
   align-items: center;

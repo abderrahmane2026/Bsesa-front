@@ -18,11 +18,13 @@ function Home() {
     <div className="Home">
       <Hero/>
       <LogoGrid/>
+      <ConferencesPage/>
+      <BlogList/>
       {/* <ServiceSection/> */}
       {/* <Courses/> */}
       <CoursesSection/>
-      <BlogList/>
-      <ConferencesPage/>
+      
+      
       <AboutSection/>
       <ContactSection/>
       <CommentsSection/>

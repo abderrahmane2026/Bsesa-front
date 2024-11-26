@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './CommentSection.css'; // Import the CSS file
 
 const CommentSection = ({ postId }) => {
   const [comments, setComments] = useState([]);
@@ -33,50 +32,55 @@ const CommentSection = ({ postId }) => {
   };
 
   return (
-    <div className="comment-wrapper">
-       <div className='relative max-w-xl mx-auto sm:text-center'>
-                    <h1 className="text-gray-800 mb-20 font-bold text-4xl xl:text-5xl">
-                   
-                        <span className="text-indigo-600">  Comments</span>
-                    </h1>
-                </div>
+    <div className="bg-gray-900 text-white p-6 rounded-lg max-w-3xl mx-auto">
+      <div className="text-center mb-8">
+        <h1 className="text-4xl font-bold text-yellow-400">Comments</h1>
+      </div>
 
-      <form className="comment-form" onSubmit={handleSubmit}>
+      <form className="space-y-4 mb-8" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Your name"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
-          className="comment-input"
+          className="w-full bg-gray-800 text-white border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
         />
         <textarea
           placeholder="Add a comment..."
           value={content}
           onChange={(e) => setContent(e.target.value)}
           required
-          className="comment-textarea"
+          className="w-full bg-gray-800 text-white border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
         ></textarea>
-        <button type="submit" className="comment-button">
+        <button
+          type="submit"
+          className="w-full bg-yellow-400 text-black font-semibold rounded-lg px-4 py-2 hover:bg-yellow-500 transition duration-200"
+        >
           Add Comment
         </button>
       </form>
 
-      <div className="comment-list">
+      <div className="space-y-6">
         {comments.length > 0 ? (
           comments.map((comment) => (
-            <div key={comment._id} className="comment">
-              <div className="comment-header">
-                <span className="comment-username">{comment.username}</span>
-                <span className="comment-timestamp">
-                  {new Date(comment.createdAt).toLocaleString()}
+            <div
+              key={comment._id}
+              className="bg-gray-800 p-4 rounded-lg shadow-md"
+            >
+              <div className="flex justify-between items-center text-sm text-gray-400">
+                <span className="font-bold text-yellow-400">
+                  {comment.username}
                 </span>
+                <span>{new Date(comment.createdAt).toLocaleString()}</span>
               </div>
-              <p className="comment-text">{comment.content}</p>
+              <p className="mt-2 text-gray-200">{comment.content}</p>
             </div>
           ))
         ) : (
-          <div className="comment-empty-state">No comments yet. Be the first to comment!</div>
+          <div className="text-center text-gray-400 italic">
+            No comments yet. Be the first to comment!
+          </div>
         )}
       </div>
     </div>

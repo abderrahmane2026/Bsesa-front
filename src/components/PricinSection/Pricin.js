@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-import "./Pricing.css";
 
 export default function PricingSec() {
-
     const plans = [
         {
             name: "Basic Training",
@@ -51,67 +49,65 @@ export default function PricingSec() {
     ];
 
     return (
-        <section className='Pricing-section py-1'>
-            <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
-                <div className='relative max-w-xl mx-auto sm:text-center'>
-                    <h1 className="text-gray-800 mb-20 font-bold text-4xl xl:text-5xl">
+        <section className="Pricing-section py-1 bg-[#111111] text-white">
+            <div className="max-w-screen-xl mx-auto px-4 md:px-8">
+                <div className="relative max-w-xl mx-auto sm:text-center">
+                    <h1 className="text-yellow-400 mb-20 font-bold text-4xl xl:text-5xl">
                         Pricing for all
-                        <span className="text-indigo-600"> Levels</span>
+                        <span className="text-white"> Levels</span>
                     </h1>
                 </div>
-                <div className='mt-16 justify-center gap-6 sm:grid sm:grid-cols-2 sm:space-y-0 lg:grid-cols-3'>
-                    {
-                        plans.map((item, idx) => (
-                            <div key={idx} className={`relative flex-1 flex items-stretch flex-col rounded-xl border-2 mt-6 sm:mt-0 ${item.isMostPop ? "mt-10" : ""}`}>
-                                {
-                                    item.isMostPop ? (
-                                        <span class="w-32 absolute -top-5 left-0 right-0 mx-auto px-3 py-2 rounded-full border shadow-md bg-white text-center text-gray-700 text-sm font-semibold">Most popular</span>
-                                    ) : ""
-                                }
-                                <div className="p-8 space-y-4 border-b">
-                                    <span className='text-indigo-600 font-medium'>
-                                        {item.name}
-                                    </span>
-                                    <div className='text-gray-800 text-3xl font-semibold'>
-                                        {item.price} <span className="text-xl text-gray-600 font-normal">/{item.time}</span>
-                                    </div>
-                                    <p>
-                                        {item.desc}
-                                    </p>
-                                    <button className='px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700'>
-                                        <Link className="payment-link"  to="payment">
-                                        Get Started
-                                        </Link>
-                                       
-                                    </button>
+                <div className="mt-16 justify-center gap-6 sm:grid sm:grid-cols-2 sm:space-y-0 lg:grid-cols-3">
+                    {plans.map((item, idx) => (
+                        <div
+                            key={idx}
+                            className={`relative flex-1 flex items-stretch flex-col rounded-xl border-2 border-gray-700 mt-6 sm:mt-0 bg-gray-800 ${
+                                item.isMostPop ? "mt-10" : ""
+                            }`}
+                        >
+                            {item.isMostPop && (
+                                <span className="w-32 absolute -top-5 left-0 right-0 mx-auto px-3 py-2 rounded-full border shadow-md bg-yellow-400 text-center text-gray-900 text-sm font-semibold">
+                                    Most popular
+                                </span>
+                            )}
+                            <div className="p-8 space-y-4 border-b border-gray-700">
+                                <span className="text-yellow-400 font-medium">{item.name}</span>
+                                <div className="text-white text-3xl font-semibold">
+                                    {item.price} <span className="text-lg text-gray-400 font-normal">/{item.time}</span>
                                 </div>
-                                <ul className='p-8 space-y-3'>
-                                    <li className="pb-2 text-gray-800 font-medium">
-                                        <p>Features</p>
-                                    </li>
-                                    {
-                                        item.features.map((featureItem, idx) => (
-                                            <li key={idx} className='flex items-center gap-5'>
-                                                <svg
-                                                    xmlns='http://www.w3.org/2000/svg'
-                                                    className='h-5 w-5 text-indigo-600'
-                                                    viewBox='0 0 20 20'
-                                                    fill='currentColor'>
-                                                    <path
-                                                        fill-rule='evenodd'
-                                                        d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                                                        clip-rule='evenodd'></path>
-                                                </svg>
-                                                {featureItem}
-                                            </li>
-                                        ))
-                                    }
-                                </ul>
+                                <p className="text-gray-300">{item.desc}</p>
+                                <button className="px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-gray-900 bg-yellow-400 hover:bg-yellow-300 active:bg-yellow-500">
+                                    <Link className="payment-link" to="payment">
+                                        Get Started
+                                    </Link>
+                                </button>
                             </div>
-                        ))
-                    }
+                            <ul className="p-8 space-y-3">
+                                <li className="pb-2 text-yellow-400 font-medium">
+                                    <p>Features</p>
+                                </li>
+                                {item.features.map((featureItem, idx) => (
+                                    <li key={idx} className="flex items-center gap-5">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="h-5 w-5 text-yellow-400"
+                                            viewBox="0 0 20 20"
+                                            fill="currentColor"
+                                        >
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                clipRule="evenodd"
+                                            ></path>
+                                        </svg>
+                                        <span className="text-gray-300">{featureItem}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>
     );
-};
+}

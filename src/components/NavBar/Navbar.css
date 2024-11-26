@@ -1,30 +1,30 @@
-.Navbar .Log-button{
-    border: 1px solid #5211C6 ;
+/* .Navbar .Log-button{
+    border: 1px solid rgb(255, 255, 0) ;
     padding: 4px 30px 4px 30px !important;
     border-radius: 25px;
-    color: #000000e6;
+    color: #ffffffe6;
     font-weight: 500;
 }
 .Navbar .sig-button{
-   background-color: #5211C6;
+   background-color: yellow;
    text-decoration: none;
    font-weight: 600;
 }
 
 .Navbar .Log-button :hover{
-    background-color: #401094 !important;
-}
+    background-color: yellow !important;
+} */
 .Navbar ul{
     margin-top: 15px;
 }
 .Navbar ul li a{
-  color: #000000e6;
+  color: #ffffffe5;
   font-weight: 500;
   margin-right: 20px !important;
 
 }
 .Navbar ul li a:hover{
-    color: #401094;
+    color: yellow;
 }
 .Navbar .logo{
     margin-right: 5% !important;
@@ -33,3 +33,44 @@
 .user-icon{
     font-size: 30px;
 }
+/* القوائم الفرعية */
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar li {
+    position: relative;
+  }
+  
+  .navbar li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar li:hover ul {
+    display: block;
+  }
+  
+  .navbar li ul li {
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+  }
+  
+  .navbar li ul li a {
+    color: #000;
+    text-decoration: none;
+  }
+  
+  .navbar li ul li a:hover {
+    color: #d32f2f;
+  }
+  

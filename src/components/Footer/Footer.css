@@ -1,19 +1,26 @@
-footer .footer-link a{
-    color: black;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 400;
-    margin-right: 20px;
-}
-footer .footer-logo img{
-    margin-bottom: 30px;
-}
-footer .footer-logo{
-    margin-bottom: 20px;
+.dark-footer .footer-link {
+    color: #ffffff; /* روابط باللون الأبيض */
 }
 
+.dark-footer .footer-link:hover {
+    color: #ffff00; /* تمييز الروابط عند التحويم باللون الأصفر */
+    text-decoration: underline;
+}
 
-.footer-link{
-    text-decoration: none;
-    color: black;
+.dark-footer h4 {
+    color: #ffff00; /* العناوين باللون الأصفر */
+}
+
+.dark-footer button {
+    background-color: #ffff00; /* خلفية الأزرار باللون الأصفر */
+    color: #111111; /* النص داخل الأزرار باللون الأسود */
+}
+
+.dark-footer button:hover {
+    background-color: #ffcc00; /* لون أفتح عند التحويم */
+}
+
+.dark-footer input {
+    background-color: #333333; /* خلفية الإدخال */
+    color: #ffffff; /* النص داخل الإدخال */
 }

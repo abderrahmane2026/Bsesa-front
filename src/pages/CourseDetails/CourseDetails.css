@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   font-family: Arial, sans-serif;
-  background-color: #f5f7fa;
+  
   padding: 20px;
 }
 
@@ -11,7 +11,7 @@
   text-align: center;
   padding: 20px;
   width: 80%;
-  background-color: #ffffff;
+  
  
   margin-bottom: 20px;
 }
@@ -39,7 +39,7 @@
 .progress-bar {
   width: 80%;
   height: 10px;
-  background-color: #e0e0e0;
+ 
   border-radius: 5px;
   margin: 0 auto 10px auto;
 }
@@ -59,7 +59,7 @@
 
 .course-details-sidebar {
   flex: 1;
-  background: #ffffff;
+  
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -76,19 +76,19 @@
   gap: 10px;
   padding: 10px;
   margin-bottom: 10px;
-  background-color: #f5f5f5;
+  
   border-radius: 5px;
   cursor: pointer;
 }
 
 .course-details-video-item.active {
-  background-color: #e0e0ff;
+ 
 }
 
 .course-details-video {
   flex: 2;
   padding: 20px;
-  background-color: #ffffff;
+  
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -123,7 +123,7 @@
 .course-quiz {
   margin-top: 20px;
   padding: 20px;
-  background-color: #ffffff;
+  
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -132,7 +132,7 @@
   margin-top: 20px;
   text-align: center;
   padding: 20px;
-  background-color: #e9ffe9;
+  
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 } 

@@ -1,10 +1,4 @@
-.courses-section-container {
-    padding: 40px;
-    background-color: #f9f9fc;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-  }
+
   
   .courses-section-container h2 {
     color: #6b47dc;
@@ -12,7 +6,15 @@
     text-align: center;
     margin-bottom: 20px;
   }
-  
+  /* إخفاء شريط التمرير */
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
   .search-filter-section {
     display: flex;
     justify-content: center;
@@ -61,20 +63,7 @@
     transform: scale(1.1);
   }
   
-  .course-card {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-    width: 250px;
-  }
   
-  .course-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  }
   
   .course-image {
     width: 100%;
