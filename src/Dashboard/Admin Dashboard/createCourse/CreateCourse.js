@@ -17,7 +17,7 @@ const CreateCourse = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("https://bsesa-backend.onrender.com/categories");
+        const response = await axios.get("https://bsesa-backend-1.onrender.com/categories");
         setCategories(response.data.categorys); // تخزين الفئات
       } catch (error) {
         console.error("Error fetching categories:", error);
@@ -38,7 +38,7 @@ const CreateCourse = () => {
     formData.append("published", published); // إرسال قيمة الحقل "published"
 
     try {
-      const response = await axios.post("https://bsesa-backend.onrender.com/course/create", formData, {
+      const response = await axios.post("https://bsesa-backend-1.onrender.com/course/create", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

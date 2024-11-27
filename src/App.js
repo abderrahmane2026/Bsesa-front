@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import './App.css';
 import { Navbar } from 'react-bootstrap';
@@ -34,84 +34,52 @@ import PaymentPage from './pages/PaymentPage/paymentPage';
 import ScrollToTop from './Context/ScrollToTop';
 import NewQuizPage from './Dashboard/Admin Dashboard/NewQuiz/NewQuiz';
 import AddVideo from './Test/courseTest/coursetest';
+import AdminPage from './Dashboard/Admin Dashboard/AdminPage';
+import AdminLayout from './Dashboard/Admin Dashboard/AdminLayout';
+import AdminDashboard from './Dashboard/Admin Dashboard/AdminDashboard';
 
 function App() {
+  const location = useLocation();
 
-  
+  // تحقق إذا كان المستخدم داخل لوحة تحكم الإدارة
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
   return (
     <div className="App min-h-screen bg-[#111111] text-white">
-       <NavBar/>
-       <ScrollToTop />
+      {/* إخفاء الـ NavBar والـ Footer إذا كان المسار يبدأ بـ '/admin' */}
+      {!isAdminRoute && <NavBar />}
+      
+      <ScrollToTop />
       <Routes>
-      
-     
-      <Route path='/' element={<Home/>}/>
-      <Route path='/About' element={<AboutUsPage/>}/>
-      <Route path='/Contact' element={<ContactUs/>}/>
-      <Route path='/service' element={<ServicePage/>}/>
+        <Route path='/' element={<Home />} />
+        {/* مسارات الصفحة العامة */}
+        <Route path='/About' element={<AboutUsPage />} />
+        <Route path='/Contact' element={<ContactUs />} />
+        <Route path='/service' element={<ServicePage />} />
+        <Route path='/Login' element={<LoginPage />} />
+        <Route path='/Signup' element={<SignupPage />} />
+        
+        {/* مسارات الـ Admin */}
+        <Route path="/admin" element={<AdminLayout />} >
+        <Route index element={<AdminDashboard />} />
+          <Route path="NewQuiz" element={<NewQuizPage />} />
+          <Route path="NewCourse" element={<NewCourse />} />
+          <Route path="NewConference" element={<NewConferencePage />} />
+          <Route path="create-video" element={<CreateVideoPage />} />
+          <Route path="Newblog" element={<NewBlogPage />} />
+          <Route path="create-category" element={<CreateCategory />} />
+          <Route path="AddVideotest" element={<AddVideo />} />
+        </Route>
 
-      <Route path='/Login' element={<LoginPage/>}/>
-      <Route path='/Signup' element={<SignupPage/>}/>
-      
-      <Route path='/ConferencesPage' element={<ConferencesPage/>}/>
-      <Route path='/ConferenceDetailsPage/:id' element={<ConferenceDetailsPage/>}/>
-
-      {/* courses */}
-
-      <Route path='/courses' element={<Courses/>}/>
-      <Route path="/courses/:courseId" element={<CourseDetails />} />
-
-      
-      {/* <Route path='/ActivationPage' element={<ActivationPage/>}/> */}
-      <Route path="/activate_account/:token" element={<ActivationPage />} />
-      {/* <Route path="/verify/:token" element={<ActivateAccount />} /> */}
-
-      <Route path="/Blogs" element={<BlogList />} />
-      <Route path="/blog/:id" element={<BlogDetail />} />
-
-{/* payment */}
-      <Route path="/payment" element={<PaymentPage />} />
-
-
-      <Route path="/account" element={<Account />} />
-      <Route path="/settings" element={<Settings />} />
-
-
-      <Route path="/Newblog" element={<NewBlogPage />}/>
-      <Route path="/create-category" element={<CreateCategory />} />
-
-{/* create course  */}
-      <Route path="/NewCours" element={<NewCourse />}/>
-      <Route path="/create-video" element={<CreateVideoPage />}/>
-
-
-{/* create Conferences */}
-      <Route path="/NewConference" element={<NewConferencePage />}/>
-
-         {/*create Quiz  */}
-
-         <Route path="/NewQuiz" element={<NewQuizPage />}/>
-          
-     
-
-
-
-      
-     
-     
-
-
-
-     {/* test */}
-    
-     <Route path="/AddVideotest" element={<AddVideo />}/>
-
-  
-
-
+        {/* مسارات أخرى */}
+        <Route path="/account" element={<Account />} />
+        <Route path="/settings" element={<Settings />} />
+        {/* مسارات مدفوعة و أخرى */}
+        <Route path="/payment" element={<PaymentPage />} />
       </Routes>
-      <Footer/>
       
+      {/* إخفاء الـ Footer إذا كنت في لوحة تحكم الإدارة */}
+      {!isAdminRoute && <Footer />}
     </div>
   );
 }

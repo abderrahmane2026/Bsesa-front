@@ -14,12 +14,12 @@ export default function LoginPage() {
   const navigate = useNavigate();
   const { login, user } = useStore();
 
-  useEffect(() => {
-    if (user) {
-      navigate("/", { replace: true });
-      window.location.reload();
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (user) {
+  //     navigate("/", { replace: true });
+  //     window.location.reload();
+  //   }
+  // }, [user, navigate]);
 
   const handleInput = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
@@ -31,16 +31,23 @@ export default function LoginPage() {
     setErr(null); // Clear any previous error message
 
     try {
-      const { data } = await axios.post("https://bsesa-backend.onrender.com/login", values, {
+      const { data } = await axios.post("https://bsesa-backend-1.onrender.com/login", values, {
         withCredentials: true,
       });
 
       console.log("User data received:", data); // Check the response
 
-        login(data.user);
-        navigate("/", { replace: true });
-        window.location.reload();
-      
+      // Login and store user data
+      login(data.user);
+console.log(data.user.role);
+      // Check the role of the user
+      if (data.user.role === "admin") {
+        navigate("/admin", { replace: true }); // Redirect to the admin dashboard
+      } else {
+        navigate("/", { replace: true }); // Redirect to the home page
+      }
+
+     // window.location.reload();
     } catch (err) {
       console.error("Error during login:", err);
       setErr(
@@ -70,9 +77,7 @@ export default function LoginPage() {
                 alt="logo"
               />
             </div>
-            <p className="fs-2 font-bold text-black">
-              Verify Account
-            </p>
+            <p className="fs-2 font-bold text-black">Verify Account</p>
             <small className="text-wrap text-center" style={{ width: "17rem", color: "black" }}>
               Welcome to the platform... Build your future with us in safety.
             </small>
@@ -131,12 +136,12 @@ export default function LoginPage() {
                 </div>
 
                 <div className="input-group mb-3">
-                <button
-  type="submit"
-  className="w-full mb-2 py-2 text-white text-lg font-medium bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out"
->
-  Login
-</button>
+                  <button
+                    type="submit"
+                    className="w-full mb-2 py-2 text-white text-lg font-medium bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out"
+                  >
+                    Login
+                  </button>
                 </div>
 
                 <div className="err-message">

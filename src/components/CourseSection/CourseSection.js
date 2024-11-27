@@ -15,7 +15,7 @@ function CoursesSection() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get("https://bsesa-backend.onrender.com/courses");
+        const response = await axios.get("https://bsesa-backend-1.onrender.com/courses");
         setCourses(response.data);
       } catch (error) {
         console.error("Error fetching courses:", error);

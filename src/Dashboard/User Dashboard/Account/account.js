@@ -36,7 +36,7 @@ const AccountPage = () => {
     formData.append('file', file);
 
     try {
-      const response = await axios.put('https://bsesa-backend.onrender.com/avatar', formData, {
+      const response = await axios.put('https://bsesa-backend-1.onrender.com/avatar', formData, {
         withCredentials: true,
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -53,7 +53,7 @@ const AccountPage = () => {
   const updateUserData = async () => {
     try {
       const response = await axios.put(
-        'https://bsesa-backend.onrender.com/userupdate',
+        'https://bsesa-backend-1.onrender.com/userupdate',
         { firstName, lastName },
         { withCredentials: true }
       );

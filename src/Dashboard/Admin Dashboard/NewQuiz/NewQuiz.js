@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./NewQuiz.css";
 import { Container, TextField, Button, Typography, Box, Paper, Radio, FormControlLabel } from "@mui/material";
-import { refresh } from "../createblog/NewBlogPage";
 import { useStore } from "../../../Context/testzustand";
+import "./NewQuiz.css";  // استيراد ملف الـ CSS
+import { refresh } from "../createblog/NewBlogPage";
 
 const NewQuizPage = () => {
   const { user } = useStore();
@@ -47,21 +47,16 @@ const NewQuizPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Refresh token to get a valid session
       const checkToken = await refresh();
       if (!checkToken) throw new Error("You Must Login");
 
-      // Prepare form data
       const formData = {
         name: quizName,
         questions,
         author: user._id,
       };
 
-      console.log("Sending formData:", formData); // Verify the data here
-
-      // Send the request to create a quiz with credentials (cookies)
-      const response = await axios.post("https://bsesa-backend.onrender.com/quiz", formData, {
+      const response = await axios.post("https://bsesa-backend-1.onrender.com/quiz", formData, {
         withCredentials: true,
       });
 
@@ -87,7 +82,7 @@ const NewQuizPage = () => {
           Create New Quiz
         </Typography>
         <form onSubmit={handleSubmit}>
-          <Box marginBottom={3} className="new-quiz-box">
+          <Box marginBottom={3}>
             <TextField
               label="Quiz Name"
               variant="outlined"
@@ -99,7 +94,7 @@ const NewQuizPage = () => {
             />
           </Box>
           {questions.map((question, qIndex) => (
-            <Box key={qIndex} marginBottom={3} className="new-quiz-question-box">
+            <Box key={qIndex} className="new-quiz-question-box">
               <TextField
                 label={`Question ${qIndex + 1}`}
                 variant="outlined"
@@ -110,7 +105,7 @@ const NewQuizPage = () => {
                 className="new-quiz-input"
               />
               {question.options.map((option, oIndex) => (
-                <Box key={oIndex} display="flex" alignItems="center" marginTop={2} className="new-quiz-option-box">
+                <Box key={oIndex} className="new-quiz-option-box">
                   <TextField
                     label={`Option ${oIndex + 1}`}
                     variant="outlined"
@@ -156,7 +151,11 @@ const NewQuizPage = () => {
             Create Quiz
           </Button>
         </form>
-        {responseMessage && <Typography variant="body1" className="new-quiz-response-message">{responseMessage}</Typography>}
+        {responseMessage && (
+          <Typography variant="body1" className="new-quiz-response-message">
+            {responseMessage}
+          </Typography>
+        )}
       </Paper>
     </Container>
   );

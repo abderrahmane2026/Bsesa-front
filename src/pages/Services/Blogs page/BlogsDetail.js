@@ -22,7 +22,7 @@ const BlogDetail = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(`https://bsesa-backend.onrender.com/blog/${id}`);
+        const response = await axios.get(`https://bsesa-backend-1.onrender.com/blog/${id}`);
         setBlog(response.data);
 
         if (currentUserId) {
@@ -42,7 +42,7 @@ const BlogDetail = () => {
       if (!checkToken) throw new Error('You must log in');
 
       const response = await axios.put(
-        `https://bsesa-backend.onrender.com/blog/like/${id}`,
+        `https://bsesa-backend-1.onrender.com/blog/like/${id}`,
         {},
         {
          
@@ -76,7 +76,7 @@ const BlogDetail = () => {
       if (!checkToken) throw new Error('You must log in');
 
       const response = await axios.put(
-        `https://bsesa-backend.onrender.com/blog/comment/${id}`,
+        `https://bsesa-backend-1.onrender.com/blog/comment/${id}`,
         { content: newComment },
         {
           headers: {

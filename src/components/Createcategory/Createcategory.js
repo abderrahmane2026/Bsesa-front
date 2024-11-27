@@ -16,7 +16,7 @@ const CreateCategory = () => {
       if (!checkToken) throw new Error("You Must Login");
       // Make request to add category with refreshed authentication token
       const response = await axios.post(
-        "https://bsesa-backend.onrender.com/categories",
+        "https://bsesa-backend-1.onrender.com/categories",
         { name, description },
         {
           withCredentials: true,

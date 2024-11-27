@@ -15,7 +15,7 @@ const CourseDetails = () => {
   useEffect(() => {
     const fetchCourse = async () => {
       try {
-        const response = await axios.get(`https://bsesa-backend.onrender.com/course/${courseId}`);
+        const response = await axios.get(`https://bsesa-backend-1.onrender.com/course/${courseId}`);
         setCourse(response.data.course);
         setLoading(false);
       } catch (err) {

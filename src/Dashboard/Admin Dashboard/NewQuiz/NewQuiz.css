@@ -1,71 +1,85 @@
-/* NewQuizPage.css */
+/* إعدادات الوضع الداكن */
+body, .new-quiz-container {
+  background-color: #111111; /* الخلفية الداكنة */
+  color: #ffffff; /* النص الأبيض */
+}
 
-.new-quiz-container {
-    margin-top: 40px;
-    padding-bottom: 40px;
-  }
-  
-  .new-quiz-paper {
-    padding: 40px;
-    background-color: #f9f9f9;
-  }
-  
-  .new-quiz-title {
-    font-family: "Roboto", sans-serif;
-    text-align: center;
-    color: #3f51b5;
-  }
-  
-  .new-quiz-box {
-    margin-bottom: 20px;
-  }
-  
-  .new-quiz-input {
-    margin-bottom: 10px;
-  }
-  
-  .new-quiz-question-box {
-    margin-bottom: 30px;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #ffffff;
-  }
-  
-  .new-quiz-option-box {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .new-quiz-option-input {
-    flex-grow: 1;
-    margin-right: 10px;
-  }
-  
-  .new-quiz-radio {
-    margin-left: 10px;
-  }
-  
-  .new-quiz-add-option-button {
-    margin-top: 10px;
-    background-color: #e3f2fd;
-  }
-  
-  .new-quiz-add-question-button {
-    background-color: #4caf50;
-    color: white;
-  }
-  
-  .new-quiz-submit-button {
-    background-color: #2196f3;
-    color: white;
-    margin-left: 10px;
-  }
-  
-  .new-quiz-submit-button:hover,
-  .new-quiz-add-question-button:hover,
-  .new-quiz-add-option-button:hover {
-    opacity: 0.8;
-  }
-  
+/* الورقة (Paper) التي تحتوي على المحتوى */
+.new-quiz-paper {
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  margin: auto;
+}
+
+/* العنوان */
+.new-quiz-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* الحقول المدخلة */
+.new-quiz-input,
+.new-quiz-option-input {
+  background-color: #333333;
+  color: #ffffff;
+  border: 1px solid #444444;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  width: 100%;
+}
+
+/* زر إضافة سؤال */
+.new-quiz-add-question-button,
+.new-quiz-submit-button,
+.new-quiz-add-option-button {
+  background-color: #fbbf24; /* اللون الأصفر */
+  color: #111111;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.new-quiz-add-question-button:hover,
+.new-quiz-submit-button:hover,
+.new-quiz-add-option-button:hover {
+  background-color: #f59e0b; /* الأصفر الداكن عند التمرير */
+}
+
+/* التفاعل مع زر الإرسال */
+.new-quiz-submit-button {
+  background-color: #fbbf24;
+  color: #111111;
+}
+
+.new-quiz-submit-button:hover {
+  background-color: #f59e0b;
+}
+
+/* رسائل الاستجابة */
+.new-quiz-response-message {
+  color: #4caf50; /* اللون الأخضر للتأكيد */
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* صناديق الأسئلة والإجابات */
+.new-quiz-question-box {
+  margin-bottom: 2rem;
+}
+
+.new-quiz-option-box {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.new-quiz-radio {
+  color: #fbbf24; /* اللون الأصفر للمؤشر */
+}

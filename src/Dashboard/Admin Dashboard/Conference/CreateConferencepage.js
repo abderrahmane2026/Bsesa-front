@@ -50,7 +50,7 @@ const NewConference = () => {
     formDataObj.append("file", file);
 
     try {
-      const response = await axios.post("https://bsesa-backend.onrender.com/conference/create", formDataObj, {
+      const response = await axios.post("https://bsesa-backend-1.onrender.com/conference/create", formDataObj, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
